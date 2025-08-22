@@ -76,35 +76,28 @@
       .grid{grid-template-columns:repeat(2,1fr)}
     }
 
-    /* ========================= */
-    /* Responsividade para celular */
-    /* ========================= */
+    /* ============================ */
+    /* Ajustes para celular (<560px) */
+    /* ============================ */
     @media (max-width:559px){
       .wrap { padding: 16px; }
-      .hero { flex-direction: column; align-items: center; gap: 16px; padding: 16px; }
-      
-      /* Avatar maior no celular */
-      .pfp { width: 100px; height: 100px; }
-
-      .title h1 { font-size: 1.6rem; text-align: center; }
-      .title p { font-size: 1rem; text-align: center; }
+      .hero { flex-direction: column; align-items: center; gap: 14px; padding: 16px; }
+      .pfp { width: 72px; height: 72px; }
+      .title h1 { font-size: 1.5rem; text-align: center; }
+      .title p { font-size: 0.95rem; text-align: center; }
       .badges { justify-content: center; }
-
-      .grid { grid-template-columns: 1fr; gap: 14px; }
-      .btn { padding: 18px; gap: 12px; font-size: 1rem; }
-      .btn .ico { width: 32px; height: 32px; }
-      .btn .t { font-size: 1.05rem; }
-      .btn .s { font-size: 0.85rem; }
-
-      /* Promoção (roleta) */
+      .grid { grid-template-columns: 1fr; gap: 12px; }
+      .btn { padding: 14px; gap: 10px; font-size: 0.95rem; }
+      .btn .ico { width: 24px; height: 24px; }
+      .btn .t { font-size: 1rem; }
+      .btn .s { font-size: 0.8rem; }
       .promo-visual, .promo-text { flex: 1 1 100%; text-align: center; }
-      .promo-visual { max-width: 240px; margin: 0 auto 12px; }
-      .promo-text h2 { font-size: 1.3rem; }
-      .promo-text h3 { font-size: 1.1rem; }
-      .promo-text p { font-size: 0.9rem; }
-
-      .legal { font-size: 0.75rem; padding: 0 6px; text-align: center; }
-      .footer { font-size: 0.78rem; text-align: center; }
+      .promo-visual { max-width: 220px; margin: 0 auto 12px; }
+      .promo-text h2 { font-size: 1.2rem; }
+      .promo-text h3 { font-size: 1rem; }
+      .promo-text p { font-size: 0.85rem; }
+      .legal { font-size: 0.72rem; padding: 0 6px; text-align: center; }
+      .footer { font-size: 0.75rem; text-align: center; }
     }
   </style>
 </head>
@@ -183,6 +176,7 @@
       <div class="promo-text" style="flex:1; min-width:220px;">
         <h2 style="margin:0 0 10px; font-size:1.4rem; color:#d4af37;">💰 Ganhe até 60% de RevShare</h2>
         <p style="margin:0 0 12px; color:#dcdcdc;">Receba comissão recorrente e aumente seus ganhos todos os meses.</p>
+        
         <h3 style="margin:0 0 10px; font-size:1.2rem; color:#f3cc5c;">✈️ Concorra a Viagens</h3>
         <p style="margin:0; color:#dcdcdc;"> Dubai • Chile • Argentina e outros destinos exclusivos para parceiros.</p>
       </div>
@@ -196,9 +190,6 @@
   </div>
 
   <script>
-    // =============================
-    // CONFIGURAÇÕES EDITÁVEIS
-    // =============================
     const LINKS = {
       cadastro: "https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=",
       subafiliado: "https://partner.obynexbroker.com/auth/signup?ref_id=757282",
@@ -208,8 +199,13 @@
       oferta: "https://wa.me/5522997301385?text=Quero+parceria+e+ser+seu+afiliado"
     };
 
-    function getParam(name){ const url = new URL(window.location.href); return url.searchParams.get(name); }
-    function fill(template, id){ return template.replaceAll("{{id}}", encodeURIComponent(id || "")); }
+    function getParam(name){
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+    function fill(template, id){
+      return template.replaceAll("{{id}}", encodeURIComponent(id || ""));
+    }
 
     const affiliateId = getParam('id') || '';
 
@@ -229,32 +225,47 @@
     document.getElementById('btn-conteudo').href = hrefs.conteudo;
     document.getElementById('btn-oferta').href = hrefs.oferta;
 
-    if(!affiliateId){ document.querySelectorAll('.ribbon').forEach(r => r.style.display = 'none'); }
-
-    const publicUrl = window.location.origin + window.location.pathname + (affiliateId ? `?id=${encodeURIComponent(affiliateId)}` : '');
-    if(document.getElementById('public-url')) document.getElementById('public-url').textContent = publicUrl;
-    if(document.getElementById('copy-input')) document.getElementById('copy-input').value = publicUrl;
-
-    if(document.getElementById('copy-btn')){
-      document.getElementById('copy-btn').addEventListener('click', async () => {
-        const val = document.getElementById('copy-input').value;
-        try{
-          await navigator.clipboard.writeText(val);
-          document.getElementById('copy-btn').textContent = 'Copiado!';
-          setTimeout(()=> document.getElementById('copy-btn').textContent = 'Copiar', 1500);
-        }catch(e){ alert('Não foi possível copiar. Copie manualmente.'); }
-      });
+    if(!affiliateId){
+      document.querySelectorAll('.ribbon').forEach(r => r.style.display = 'none');
     }
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Fade-in da seção promo
     document.addEventListener("DOMContentLoaded", function() {
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add("show"); } });
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add("show");
+          }
+        });
       }, {threshold:0.2});
       document.querySelectorAll(".promo").forEach(el => observer.observe(el));
     });
   </script>
+
+  <style>
+    .roleta {
+      width:100%;
+      max-width:280px;
+      border-radius:0;
+      box-shadow:none;
+      animation: girar 5s linear infinite;
+    }
+    @keyframes girar {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .btn.black-pulse {
+      background: linear-gradient(135deg, #111111, #222222);
+      border: 1px solid #555;
+      box-shadow: 0 0 12px #fff9, 0 0 20px #fff5 inset;
+      animation: pulse 1.5s infinite alternate;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 8px #fff9, 0 0 15px #fff5 inset; }
+      50% { box-shadow: 0 0 14px #fff9, 0 0 25px #fff5 inset; }
+      100% { box-shadow: 0 0 8px #fff9, 0 0 15px #fff5 inset; }
+    }
+  </style>
 </body>
 </html>
