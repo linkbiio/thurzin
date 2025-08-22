@@ -272,15 +272,15 @@
 ------------------------------------------------------------------------------
 
 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Banner Day Trading</title>
+  <title>Banner Day Trading Luxo</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial@0.1.0/dist/chartjs-chart-financial.min.js"></script>
   <style>
-    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
@@ -298,40 +298,34 @@
 
     .banner {
       position: relative;
-      width: 90%;
-      max-width: 1200px;
-      padding: 50px;
-      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-      border: 2px solid #ffd700;
+      width: 80%; /* largura menor */
+      max-width: 800px; /* largura máxima menor */
+      padding: 20px 30px; /* padding reduzido */
+      background: linear-gradient(135deg, #000 0%, #111 100%);
+      border: 3px solid #ffd700;
       border-radius: 20px;
       text-align: center;
       overflow: hidden;
       box-shadow: 0 0 30px #ffd70088;
-      transition: transform 0.3s ease;
-    }
-
-    .banner:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 50px #ffd700bb;
     }
 
     .banner h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: #ffd700;
-      text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd70088, 0 0 30px #ffd70055;
-      margin-bottom: 20px;
+      text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd70088;
+      margin-bottom: 15px;
     }
 
     .banner p {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: #fff;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .banner .btn {
       display: inline-block;
-      padding: 15px 40px;
-      font-size: 1.2rem;
+      padding: 12px 30px;
+      font-size: 1rem;
       color: #000;
       background: linear-gradient(45deg, #ffd700, #ffcc00);
       border: none;
@@ -348,7 +342,13 @@
       box-shadow: 0 0 30px #ffd700bb;
     }
 
-    /* Elementos animados extras */
+    canvas {
+      margin-top: 20px;
+      border-radius: 15px;
+      background: #000;
+      box-shadow: 0 0 20px #ffd70088;
+    }
+
     .banner::before {
       content: '';
       position: absolute;
@@ -356,8 +356,8 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, transparent 70%);
-      animation: rotate 10s linear infinite;
+      background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, transparent 70%);
+      animation: rotate 15s linear infinite;
       pointer-events: none;
     }
 
@@ -367,16 +367,9 @@
     }
 
     @media (max-width: 768px) {
-      .banner h1 {
-        font-size: 2.2rem;
-      }
-      .banner p {
-        font-size: 1.1rem;
-      }
-      .banner .btn {
-        padding: 12px 30px;
-        font-size: 1rem;
-      }
+      .banner h1 { font-size: 2rem; }
+      .banner p { font-size: 1rem; }
+      canvas { height: 200px !important; }
     }
   </style>
 </head>
@@ -385,6 +378,42 @@
     <h1>Day Trading Premium</h1>
     <p>Domine o mercado com estratégias vencedoras!</p>
     <a href="#" class="btn">Saiba Mais</a>
+    <canvas id="tradingChart" height="250"></canvas>
   </div>
+
+  <script>
+    const ctx = document.getElementById('tradingChart').getContext('2d');
+
+    const data = {
+      labels: ['09:00','10:00','11:00','12:00','13:00','14:00','15:00'],
+      datasets: [{
+        label: 'Preço',
+        data: [
+          {o: 100, h: 105, l: 95, c: 102},
+          {o: 102, h: 110, l: 101, c: 107},
+          {o: 107, h: 112, l: 106, c: 108},
+          {o: 108, h: 115, l: 107, c: 112},
+          {o: 112, h: 118, l: 110, c: 115},
+          {o: 115, h: 120, l: 113, c: 117},
+          {o: 117, h: 122, l: 115, c: 119},
+        ],
+        borderColor: '#ffd700',
+        backgroundColor: '#ffd70033'
+      }]
+    };
+
+    new Chart(ctx, {
+      type: 'candlestick',
+      data: data,
+      options: {
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: '#333' }, ticks: { color: '#fff' } },
+          y: { grid: { color: '#333' }, ticks: { color: '#fff' } }
+        }
+      },
+      plugins: [Chart.Financial]
+    });
+  </script>
 </body>
 </html>
