@@ -158,7 +158,7 @@
     
 --------------------------------------
 <!-- Bloco de propaganda -->
-<section class="card promo" style="padding:22px; margin-top:18px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between">
+<section class="card promo hidden" style="padding:22px; margin-top:18px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between">
   
   <!-- Visual: gráfico + roleta -->
   <div class="promo-visual" style="flex:1; min-width:220px; display:flex; flex-direction:column; gap:16px; align-items:center; justify-content:center">
@@ -211,7 +211,32 @@
       }
     }
   });
+
+  // Animação de entrada
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+      }
+    });
+  }, {threshold:0.2});
+
+  document.querySelectorAll(".promo").forEach(el => observer.observe(el));
 </script>
+
+<style>
+  /* Animação da seção */
+  .promo.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .promo.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
 
 --------------------------------------
 
