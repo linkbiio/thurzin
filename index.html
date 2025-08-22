@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -204,10 +203,8 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-</style
+</style>
 
-
-    
 <script>
   // Fade-in da seção
   const observer = new IntersectionObserver((entries) => {
@@ -219,35 +216,6 @@
   }, {threshold:0.2});
   document.querySelectorAll(".promo").forEach(el => observer.observe(el));
 </script>
-
-
-
-/* Botão Bônus Exclusivo Preto Pulsante */
-.btn.black-pulse {
-  background: linear-gradient(135deg, #111111, #222222);
-  border: 1px solid #555;
-  box-shadow: 0 0 12px #fff9, 0 0 20px #fff5 inset;
-  animation: pulse 1.5s infinite alternate;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 8px #fff9, 0 0 15px #fff5 inset; }
-  50% { box-shadow: 0 0 14px #fff9, 0 0 25px #fff5 inset; }
-  100% { box-shadow: 0 0 8px #fff9, 0 0 15px #fff5 inset; }
-}
-
-
-  
-
-  /* Botão prata */
-.btn.silver {
-  background:
-    linear-gradient(180deg, rgba(192,192,192,.35), rgba(169,169,169,.2)),
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  border:1px solid rgba(192,192,192,.55);
-  box-shadow:0 12px 22px rgba(192,192,192,.15);
-}
-
 
 --------------------------------------
 
@@ -320,7 +288,7 @@
     }
 
     // Monta o link público atual (com ?id=... se existir)
-    const publicUrl = window.location.origin + window.location.pathname + (affiliateId ? `?id=${encodeURIComponent(affiliateId)}` : '');
+    const publicUrl = window.location.origin + window.location.pathname + (affiliateId ? ?id=${encodeURIComponent(affiliateId)} : '');
     document.getElementById('public-url').textContent = publicUrl;
     document.getElementById('copy-input').value = publicUrl;
 
