@@ -190,12 +190,12 @@
     transform: translateY(0);
   }
 
-  /* Roleta girando automaticamente */
+  /* Roleta girando automaticamente sem borda nem sombra */
   .roleta {
     width:100%;
     max-width:280px;
-    border-radius:14px;
-    box-shadow:0 6px 18px rgba(0,0,0,.5);
+    border-radius:0;       /* sem cantos arredondados */
+    box-shadow:none;       /* sem sombra */
     animation: girar 5s linear infinite;
   }
 
@@ -216,7 +216,6 @@
   }, {threshold:0.2});
   document.querySelectorAll(".promo").forEach(el => observer.observe(el));
 </script>
-
 
 --------------------------------------
 
