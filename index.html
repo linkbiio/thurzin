@@ -204,7 +204,7 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-</styl
+</style
 
 
     
@@ -222,6 +222,19 @@
 
 
 
+/* Botão Bônus Exclusivo Preto Pulsante */
+.btn.black-pulse {
+  background: linear-gradient(135deg, #111111, #222222);
+  border: 1px solid #555;
+  box-shadow: 0 0 12px #fff9, 0 0 20px #fff5 inset;
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 8px #fff9, 0 0 15px #fff5 inset; }
+  50% { box-shadow: 0 0 14px #fff9, 0 0 25px #fff5 inset; }
+  100% { box-shadow: 0 0 8px #fff9, 0 0 15px #fff5 inset; }
+}
 
 
   
