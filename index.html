@@ -157,62 +157,48 @@
 
     
 --------------------------------------
-<!-- Bloco de propaganda -->
-<section class="card promo hidden" style="padding:22px; margin-top:18px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between">
-  
-  <!-- Visual: gráfico + roleta -->
-  <div class="promo-visual" style="flex:1; min-width:220px; display:flex; flex-direction:column; gap:16px; align-items:center; justify-content:center">
-    
-    <!-- Mini gráfico -->
-    <div style="background:radial-gradient(circle at 40% 40%, #222, #0b0b0b); border-radius:14px; padding:12px; width:100%; max-width:280px">
-      <canvas id="chart" width="260" height="160"></canvas>
-    </div>
-    
-    <!-- Imagem roleta -->
-    <div style="background:#111; border-radius:14px; padding:8px; width:100%; max-width:280px; text-align:center">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Roulette_-_Las_Vegas.jpg/320px-Roulette_-_Las_Vegas.jpg" alt="Roleta Cassino" style="width:100%; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.5)" />
-    </div>
-  
-  </div>
-
-  <!-- Texto da propaganda -->
-  <div class="promo-text" style="flex:1; min-width:220px;">
-    <h2 style="margin:0 0 10px; font-size:1.4rem; color:var(--gold1)">💰 Ganhe até 60% de RevShare</h2>
-    <p style="margin:0 0 12px; color:#dcdcdc">Receba comissão recorrente e aumente seus ganhos todos os meses.</p>
-    
-    <h3 style="margin:0 0 10px; font-size:1.2rem; color:var(--gold2)">✈️ Concorrendo a Viagens</h3>
-    <p style="margin:0; color:#dcdcdc">Dubai • Chile • e outros destinos exclusivos para parceiros.</p>
-  </div>
-</section>
-
-<!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  // Mini gráfico fake estilo corretora
   const ctx = document.getElementById('chart').getContext('2d');
+
+  // Dados iniciais
+  const dataPoints = Array.from({length:20}, ()=> Math.floor(Math.random()*100));
+
   const chart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: Array.from({length:20}, (_,i)=>i),
+      labels: Array.from({length:20}, (_,i)=>i+1),
       datasets: [{
-        data: Array.from({length:20}, ()=> Math.floor(Math.random()*100)),
+        data: dataPoints,
         borderColor: '#f3cc5c',
         backgroundColor: 'rgba(243,204,92,.15)',
         fill: true,
-        tension: .3
+        tension: 0.3
       }]
     },
     options: {
       responsive: false,
-      plugins:{legend:{display:false}},
+      plugins: {legend:{display:false}},
       scales: {
-        x:{display:false},
-        y:{display:false}
+        x: {display:false},
+        y: {display:false}
+      },
+      animation: {
+        duration: 800,
+        easing: 'easeOutQuad'
       }
     }
   });
 
-  // Animação de entrada
+  // Função para atualizar dados a cada 2 segundos
+  setInterval(() => {
+    dataPoints.shift(); // remove o primeiro ponto
+    dataPoints.push(Math.floor(Math.random()*100)); // adiciona novo ponto aleatório
+    chart.data.datasets[0].data = dataPoints;
+    chart.update();
+  }, 2000);
+
+  // Animação de entrada da seção
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
@@ -223,19 +209,6 @@
 
   document.querySelectorAll(".promo").forEach(el => observer.observe(el));
 </script>
-
-<style>
-  /* Animação da seção */
-  .promo.hidden {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .promo.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
 
 
 --------------------------------------
