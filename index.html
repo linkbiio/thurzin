@@ -157,19 +157,16 @@
 
     
 --------------------------------------
-<!-- Bloco de propaganda com roleta girando -->
+<!-- Bloco de propaganda com roleta girando automaticamente -->
 <section class="card promo hidden" style="padding:22px; margin-top:18px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between">
 
-  <!-- Roleta girando -->
+  <!-- Roleta girando automaticamente -->
   <div class="promo-visual" style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center; position:relative;">
     
     <!-- Imagem da roleta (suba a sua imagem em assets/roleta.jpg) -->
     <img src="assets/roleta.jpg" 
          alt="Roleta Cassino" 
          class="roleta" />
-
-    <!-- Botão girar -->
-    <button id="spin-btn" style="position:absolute; bottom:-40px; padding:10px 20px; border-radius:12px; border:none; background:linear-gradient(135deg,#f3cc5c,#d4af37); color:#1a1405; cursor:pointer; font-weight:700;">Girar 🎲</button>
   </div>
 
   <!-- Texto da propaganda -->
@@ -193,13 +190,18 @@
     transform: translateY(0);
   }
 
-  /* Roleta girando */
+  /* Roleta girando automaticamente */
   .roleta {
     width:100%;
     max-width:280px;
     border-radius:14px;
     box-shadow:0 6px 18px rgba(0,0,0,.5);
-    transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1);
+    animation: girar 5s linear infinite;
+  }
+
+  @keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 </style>
 
@@ -213,16 +215,6 @@
     });
   }, {threshold:0.2});
   document.querySelectorAll(".promo").forEach(el => observer.observe(el));
-
-  // Botão girar roleta
-  const roletaImg = document.querySelector(".roleta");
-  const spinBtn = document.getElementById("spin-btn");
-
-  spinBtn.addEventListener("click", () => {
-    // Gira a roleta aleatoriamente entre 720° e 1440° para efeito realista
-    const degrees = Math.floor(Math.random() * 720) + 720;
-    roletaImg.style.transform = `rotate(${degrees}deg)`;
-  });
 </script>
 
 
