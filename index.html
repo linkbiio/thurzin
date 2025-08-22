@@ -204,8 +204,10 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-</style>
+</styl
 
+
+    
 <script>
   // Fade-in da seção
   const observer = new IntersectionObserver((entries) => {
@@ -217,6 +219,22 @@
   }, {threshold:0.2});
   document.querySelectorAll(".promo").forEach(el => observer.observe(el));
 </script>
+
+
+
+
+
+  
+
+  /* Botão prata */
+.btn.silver {
+  background:
+    linear-gradient(180deg, rgba(192,192,192,.35), rgba(169,169,169,.2)),
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid rgba(192,192,192,.55);
+  box-shadow:0 12px 22px rgba(192,192,192,.15);
+}
+
 
 --------------------------------------
 
