@@ -269,3 +269,122 @@
   </style>
 </body>
 </html>
+------------------------------------------------------------------------------
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banner Day Trading</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .banner {
+      position: relative;
+      width: 90%;
+      max-width: 1200px;
+      padding: 50px;
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+      border: 2px solid #ffd700;
+      border-radius: 20px;
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 0 30px #ffd70088;
+      transition: transform 0.3s ease;
+    }
+
+    .banner:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 50px #ffd700bb;
+    }
+
+    .banner h1 {
+      font-size: 3rem;
+      color: #ffd700;
+      text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd70088, 0 0 30px #ffd70055;
+      margin-bottom: 20px;
+    }
+
+    .banner p {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .banner .btn {
+      display: inline-block;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      color: #000;
+      background: linear-gradient(45deg, #ffd700, #ffcc00);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px #ffd70088;
+    }
+
+    .banner .btn:hover {
+      background: linear-gradient(45deg, #ffec70, #ffd700);
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #ffd700bb;
+    }
+
+    /* Elementos animados extras */
+    .banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, transparent 70%);
+      animation: rotate 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      .banner h1 {
+        font-size: 2.2rem;
+      }
+      .banner p {
+        font-size: 1.1rem;
+      }
+      .banner .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <h1>Day Trading Premium</h1>
+    <p>Domine o mercado com estratégias vencedoras!</p>
+    <a href="#" class="btn">Saiba Mais</a>
+  </div>
+</body>
+</html>
