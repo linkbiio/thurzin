@@ -157,29 +157,32 @@
 
     
 --------------------------------------
-<!-- Bloco de propaganda com roleta interativa -->
+<!-- Bloco de propaganda com roleta girando -->
 <section class="card promo hidden" style="padding:22px; margin-top:18px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between">
 
-  <!-- Roleta interativa -->
-  <div class="promo-visual" style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center; flex-direction:column; perspective:600px;">
-    <div class="roleta-container">
-      <div class="roleta-wheel" id="roleta-wheel"></div>
-    </div>
-    <button id="spin-btn" style="margin-top:12px; padding:10px 20px; border-radius:12px; border:none; background:linear-gradient(135deg,#f3cc5c,#d4af37); color:#1a1405; cursor:pointer; font-weight:700;">Girar 🎲</button>
+  <!-- Roleta girando -->
+  <div class="promo-visual" style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center; position:relative;">
+    
+    <!-- Imagem da roleta (suba a sua imagem em assets/roleta.jpg) -->
+    <img src="assets/roleta.jpg" 
+         alt="Roleta Cassino" 
+         class="roleta" />
+
+    <!-- Botão girar -->
+    <button id="spin-btn" style="position:absolute; bottom:-40px; padding:10px 20px; border-radius:12px; border:none; background:linear-gradient(135deg,#f3cc5c,#d4af37); color:#1a1405; cursor:pointer; font-weight:700;">Girar 🎲</button>
   </div>
 
   <!-- Texto da propaganda -->
   <div class="promo-text" style="flex:1; min-width:220px;">
-    <h2 style="margin:0 0 10px; font-size:1.4rem; color:var(--gold1)">💰 Ganhe até 60% de RevShare</h2>
-    <p style="margin:0 0 12px; color:#dcdcdc">Receba comissão recorrente e aumente seus ganhos todos os meses.</p>
+    <h2 style="margin:0 0 10px; font-size:1.4rem; color:#d4af37;">💰 Ganhe até 60% de RevShare</h2>
+    <p style="margin:0 0 12px; color:#dcdcdc;">Receba comissão recorrente e aumente seus ganhos todos os meses.</p>
     
-    <h3 style="margin:0 0 10px; font-size:1.2rem; color:var(--gold2)">✈️ Concorrendo a Viagens</h3>
-    <p style="margin:0; color:#dcdcdc">Dubai • Chile • e outros destinos exclusivos para parceiros.</p>
+    <h3 style="margin:0 0 10px; font-size:1.2rem; color:#f3cc5c;">✈️ Concorrendo a Viagens</h3>
+    <p style="margin:0; color:#dcdcdc;">Dubai • Chile • e outros destinos exclusivos para parceiros.</p>
   </div>
 </section>
 
 <style>
-  /* Animação da seção de propaganda */
   .promo.hidden {
     opacity: 0;
     transform: translateY(40px);
@@ -190,44 +193,18 @@
     transform: translateY(0);
   }
 
-  /* Roleta */
-  .roleta-container {
-    width:200px;
-    height:200px;
-    border-radius:50%;
-    border:4px solid #d4af37;
-    background:#111;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  /* Roleta girando */
+  .roleta {
+    width:100%;
+    max-width:280px;
+    border-radius:14px;
     box-shadow:0 6px 18px rgba(0,0,0,.5);
-    position:relative;
-    overflow:hidden;
-  }
-
-  .roleta-wheel {
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    display:flex;
-    flex-wrap:wrap;
-    transform: rotate(0deg);
-    transition: transform 4s cubic-bezier(.17,.67,.83,.67);
-  }
-
-  .roleta-wheel span {
-    flex: 0 0 20%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:700;
-    color:#fff;
-    font-size:.9rem;
+    transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1);
   }
 </style>
 
 <script>
-  // Animação de entrada
+  // Fade-in da seção
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
@@ -237,21 +214,14 @@
   }, {threshold:0.2});
   document.querySelectorAll(".promo").forEach(el => observer.observe(el));
 
-  // Cria números da roleta
-  const wheel = document.getElementById('roleta-wheel');
-  for(let i=1; i<=20; i++){
-    const num = document.createElement('span');
-    num.textContent = i;
-    wheel.appendChild(num);
-  }
+  // Botão girar roleta
+  const roletaImg = document.querySelector(".roleta");
+  const spinBtn = document.getElementById("spin-btn");
 
-  // Função girar
-  const spinBtn = document.getElementById('spin-btn');
-  let rotation = 0;
-  spinBtn.addEventListener('click', () => {
-    const extra = Math.floor(Math.random() * 360) + 720; // gira de 2 a 3 voltas
-    rotation += extra;
-    wheel.style.transform = `rotate(${rotation}deg)`;
+  spinBtn.addEventListener("click", () => {
+    // Gira a roleta aleatoriamente entre 720° e 1440° para efeito realista
+    const degrees = Math.floor(Math.random() * 720) + 720;
+    roletaImg.style.transform = `rotate(${degrees}deg)`;
   });
 </script>
 
