@@ -163,8 +163,7 @@
 
   <!-- Roleta girando automaticamente -->
   <div class="promo-visual" style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center; position:relative;">
-    
-    <!-- Imagem da roleta (suba a sua imagem em assets/roleta.jpg) -->
+    <!-- Imagem da roleta -->
     <img src="assets/roleta.jpg" 
          alt="Roleta Cassino" 
          class="roleta" />
@@ -181,6 +180,7 @@
 </section>
 
 <style>
+  /* Fade-in da seção */
   .promo.hidden {
     opacity: 0;
     transform: translateY(40px);
@@ -199,54 +199,48 @@
     box-shadow:none;       /* sem sombra */
     animation: girar 5s linear infinite;
   }
-
   @keyframes girar {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-</style
 
-
-    
-<script>
-  // Fade-in da seção
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add("show");
-      }
-    });
-  }, {threshold:0.2});
-  document.querySelectorAll(".promo").forEach(el => observer.observe(el));
-</script>
-
-
-
-/* Botão Bônus Exclusivo Preto Pulsante */
-.btn.black-pulse {
-  background: linear-gradient(135deg, #111111, #222222);
-  border: 1px solid #555;
-  box-shadow: 0 0 12px #fff9, 0 0 20px #fff5 inset;
-  animation: pulse 1.5s infinite alternate;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 8px #fff9, 0 0 15px #fff5 inset; }
-  50% { box-shadow: 0 0 14px #fff9, 0 0 25px #fff5 inset; }
-  100% { box-shadow: 0 0 8px #fff9, 0 0 15px #fff5 inset; }
-}
-
-
-  
+  /* Botão Bônus Exclusivo Preto Pulsante */
+  .btn.black-pulse {
+    background: linear-gradient(135deg, #111111, #222222);
+    border: 1px solid #555;
+    box-shadow: 0 0 12px #fff9, 0 0 20px #fff5 inset;
+    animation: pulse 1.5s infinite alternate;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 8px #fff9, 0 0 15px #fff5 inset; }
+    50% { box-shadow: 0 0 14px #fff9, 0 0 25px #fff5 inset; }
+    100% { box-shadow: 0 0 8px #fff9, 0 0 15px #fff5 inset; }
+  }
 
   /* Botão prata */
-.btn.silver {
-  background:
-    linear-gradient(180deg, rgba(192,192,192,.35), rgba(169,169,169,.2)),
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  border:1px solid rgba(192,192,192,.55);
-  box-shadow:0 12px 22px rgba(192,192,192,.15);
-}
+  .btn.silver {
+    background:
+      linear-gradient(180deg, rgba(192,192,192,.35), rgba(169,169,169,.2)),
+      linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    border:1px solid rgba(192,192,192,.55);
+    box-shadow:0 12px 22px rgba(192,192,192,.15);
+  }
+</style>
+
+<script>
+  // Fade-in da seção quando aparece na tela
+  document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("show");
+        }
+      });
+    }, {threshold:0.2});
+    document.querySelectorAll(".promo").forEach(el => observer.observe(el));
+  });
+</script>
+
 
 
 --------------------------------------
