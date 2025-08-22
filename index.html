@@ -157,14 +157,14 @@
 
     
 --------------------------------------
-<!-- Bloco de propaganda com roleta -->
+<!-- Bloco de propaganda com roleta animada -->
 <section class="card promo hidden" style="padding:22px; margin-top:18px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between">
   
-  <!-- Imagem roleta -->
-  <div class="promo-visual" style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center">
+  <!-- Imagem roleta animada -->
+  <div class="promo-visual" style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center; perspective:600px;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Roulette_-_Las_Vegas.jpg/320px-Roulette_-_Las_Vegas.jpg" 
          alt="Roleta Cassino" 
-         style="width:100%; max-width:280px; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.5)" />
+         class="roleta" />
   </div>
 
   <!-- Texto da propaganda -->
@@ -188,6 +188,23 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Roleta animada */
+  .roleta {
+    width:100%; max-width:280px; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.5);
+    animation: girar 12s linear infinite, glow 2.5s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
+
+  @keyframes girar {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+  }
+
+  @keyframes glow {
+    0% { box-shadow: 0 6px 18px rgba(243,204,92,.5), 0 0 8px rgba(243,204,92,.2); }
+    100% { box-shadow: 0 10px 28px rgba(243,204,92,.7), 0 0 16px rgba(243,204,92,.35); }
+  }
 </style>
 
 <script>
@@ -202,6 +219,7 @@
 
   document.querySelectorAll(".promo").forEach(el => observer.observe(el));
 </script>
+
 
 
 --------------------------------------
