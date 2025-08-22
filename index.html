@@ -160,20 +160,32 @@
 <!-- Bloco de propaganda -->
 <section class="card promo" style="padding:22px; margin-top:18px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between">
   
-  <!-- Simulação gráfica (pode ser trocado por imagem ou gráfico real depois) -->
-  <div class="promo-visual" style="flex:1; min-width:220px; background:radial-gradient(circle at 40% 40%, #222, #0b0b0b); border-radius:14px; padding:16px; display:flex; align-items:center; justify-content:center">
-    <canvas id="chart" width="260" height="160"></canvas>
+  <!-- Visual: gráfico + roleta -->
+  <div class="promo-visual" style="flex:1; min-width:220px; display:flex; flex-direction:column; gap:16px; align-items:center; justify-content:center">
+    
+    <!-- Mini gráfico -->
+    <div style="background:radial-gradient(circle at 40% 40%, #222, #0b0b0b); border-radius:14px; padding:12px; width:100%; max-width:280px">
+      <canvas id="chart" width="260" height="160"></canvas>
+    </div>
+    
+    <!-- Imagem roleta -->
+    <div style="background:#111; border-radius:14px; padding:8px; width:100%; max-width:280px; text-align:center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Roulette_-_Las_Vegas.jpg/320px-Roulette_-_Las_Vegas.jpg" alt="Roleta Cassino" style="width:100%; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.5)" />
+    </div>
+  
   </div>
 
   <!-- Texto da propaganda -->
   <div class="promo-text" style="flex:1; min-width:220px;">
     <h2 style="margin:0 0 10px; font-size:1.4rem; color:var(--gold1)">💰 Ganhe até 60% de RevShare</h2>
     <p style="margin:0 0 12px; color:#dcdcdc">Receba comissão recorrente e aumente seus ganhos todos os meses.</p>
+    
     <h3 style="margin:0 0 10px; font-size:1.2rem; color:var(--gold2)">✈️ Concorrendo a Viagens</h3>
     <p style="margin:0; color:#dcdcdc">Dubai • Chile • e outros destinos exclusivos para parceiros.</p>
   </div>
 </section>
 
+<!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   // Mini gráfico fake estilo corretora
@@ -200,7 +212,6 @@
     }
   });
 </script>
-
 
 --------------------------------------
 
