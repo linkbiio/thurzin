@@ -3,127 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thurzin Trader - Landing Page Premium</title>
+  <title>Thurzin Trader</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #000000, #1a1a1a);
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
     }
-
     header {
+      background: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      color: #f1c40f;
+    }
+    .links {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 40px;
-      text-align: center;
+      margin: 20px 0;
+      gap: 10px;
     }
-
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid #FFD700;
-      box-shadow: 0 0 20px #FFD70088;
-      margin-bottom: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    header img:hover {
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    header h1 {
-      font-size: 3rem;
-      color: #FFD700;
-      text-shadow: 2px 2px 10px #000;
-      margin-bottom: 10px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width: 100%;
-      max-width: 450px;
-      margin-bottom: 50px;
-    }
-
-    .btn {
-      padding: 20px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      text-align: center;
+    .links a {
+      display: block;
       text-decoration: none;
       color: #fff;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+      background: #f1c40f;
+      padding: 15px 25px;
+      border-radius: 10px;
+      width: 250px;
+      text-align: center;
+      font-weight: bold;
+      transition: 0.3s;
     }
-
-    .btn:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+    .links a:hover {
+      background: #d4ac0d;
     }
-
-    /* Cores personalizadas */
-    .btn-affiliate { background: #FF4500; } /* laranja */
-    .btn-whatsapp { background: #25D366; } /* verde */
-    .btn-group { background: #1DA1F2; } /* azul */
-    .btn-instagram { background: #C13584; } /* rosa */
-    .btn-tiktok { background: #000; border: 2px solid #fff; }
-
-    /* Footer opcional */
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #ccc;
+    .dashboard {
+      background: #1a1a1a;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+    }
+    .dashboard h2 {
+      color: #f1c40f;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    input, button, select {
+      padding: 8px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background: #f1c40f;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #d4ac0d;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #fff;
+    }
+    th, td {
+      padding: 8px;
       text-align: center;
     }
-
-    @media (max-width: 500px) {
-      header h1 {
-        font-size: 2.2rem;
+    iframe {
+      width: 100%;
+      height: 360px;
+      border-radius: 10px;
+      border: none;
+    }
+    .admin-section {
+      display: none;
+    }
+    @media(max-width: 600px) {
+      .links a {
+        width: 90%;
       }
-      .btn {
-        font-size: 1rem;
-        padding: 15px;
-      }
-      header img {
-        width: 120px;
-        height: 120px;
+      iframe {
+        height: 200px;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="https://via.placeholder.com/150" alt="Thurzin Trader">
-    <h1>Thurzin Trader</h1>
-    <p>Aprenda a operar com assertividade e segurança!</p>
-  </header>
+<header>
+  <h1>Thurzin Trader</h1>
+</header>
 
-  <div class="buttons">
-    <a class="btn btn-affiliate" href="https://trade.astronbroker.com/register?aff=752922&aff_model=revenue&afftrack=" target="_blank">Afiliado Astron Broker</a>
-    <a class="btn btn-whatsapp" href="https://wa.me/5522997301385" target="_blank">Falar comigo no WhatsApp</a>
-    <a class="btn btn-group" href="https://chat.whatsapp.com/BqocKGrw95I5WWdfJXrdAg" target="_blank">Entrar no grupo WhatsApp</a>
-    <a class="btn btn-instagram" href="https://www.instagram.com/thurzintrader?igsh=dzNhNzZ3d3djd2Q0&utm_source=qr" target="_blank">Instagram Oficial</a>
-    <a class="btn btn-tiktok" href="https://www.tiktok.com/@thurzintrader?is_from_webapp=1&sender_device=pc" target="_blank">TikTok Oficial</a>
-    <a class="btn btn-tiktok" href="https://www.tiktok.com/@thurzintrader?_t=ZM-8zLWx7WfbFt&_r=1" target="_blank">TikTok Clipes</a>
+<div class="links">
+  <a href="https://trade.astronbroker.com/register?aff=752922&aff_model=revenue&afftrack=" target="_blank">Corretora Parceira</a>
+  <a href="https://chat.whatsapp.com/BqocKGrw95I5WWdfJXrdAg" target="_blank">Grupo da Live</a>
+  <a href="https://wa.me/5522997301385" target="_blank">WhatsApp</a>
+  <a href="https://www.tiktok.com/@thurzintrader?is_from_webapp=1&sender_device=pc" target="_blank">TikTok Oficial</a>
+  <a href="https://www.tiktok.com/@thurzinshorts?_t=ZM-8zLXqZ3SNpI&_r=1" target="_blank">TikTok Clips</a>
+  <a href="https://www.instagram.com/thurzintrader?igsh=dzNhNzZ3d3djd2Q0&utm_source=qr" target="_blank">Instagram</a>
+</div>
+
+<div class="dashboard">
+  <h2>Dashboard</h2>
+
+  <!-- Sessão Gerenciamento de Banca -->
+  <div class="section">
+    <h3>Gerenciamento de Banca</h3>
+    <label>Banca Inicial:</label>
+    <input type="number" id="bancaInicial" value="0"><br>
+    <label>Faturou (+) ou Perdeu (-) Hoje:</label>
+    <input type="number" id="bancaDia" value="0"><br>
+    <button onclick="atualizarBanca()">Atualizar</button>
+    <p>Total Semana: <span id="totalSemana">0</span></p>
+    <p>Total Mês: <span id="totalMes">0</span></p>
   </div>
 
-  <footer>
-    © 2025 Thurzin Trader - Todos os direitos reservados
-  </footer>
+  <!-- Sessão Video Tutorial -->
+  <div class="section">
+    <h3>Video Tutorial</h3>
+    <iframe src="https://www.youtube.com/embed/LCn34PwXPpE?si=i6y_x2oc4wPIRv-O" allowfullscreen></iframe>
+  </div>
+
+  <!-- Sessão Live -->
+  <div class="section">
+    <h3>Live Thurzin Trader</h3>
+    <label>Link da Live:</label>
+    <input type="text" id="linkLive" placeholder="Cole o link do Google Meet"><br>
+    <button onclick="atualizarLive()">Atualizar Live</button>
+    <iframe id="liveFrame" src="" allowfullscreen></iframe>
+    <h4>Horários da Live</h4>
+    <table>
+      <tr><th>Dia</th><th>Horário</th></tr>
+      <tr><td>Segunda</td><td>10h e 22h</td></tr>
+      <tr><td>Terça</td><td>10h e 22h</td></tr>
+      <tr><td>Quarta</td><td>10h e 22h</td></tr>
+      <tr><td>Quinta</td><td>10h e 22h</td></tr>
+      <tr><td>Sexta</td><td>10h e 22h</td></tr>
+    </table>
+  </div>
+
+  <!-- Painel Admin -->
+  <div class="section admin-section" id="adminSection">
+    <h3>Painel Admin</h3>
+    <p>Aqui você pode controlar clientes e atualizar links das lives.</p>
+    <!-- Exemplo de gerenciamento de links -->
+    <label>Novo link da live:</label>
+    <input type="text" id="adminLinkLive" placeholder="Novo link"><br>
+    <button onclick="adminAtualizarLive()">Atualizar Live (Admin)</button>
+  </div>
+</div>
+
+<script>
+  // Banca
+  let totalSemana = 0;
+  let totalMes = 0;
+
+  function atualizarBanca() {
+    const bancaDia = parseFloat(document.getElementById('bancaDia').value) || 0;
+    totalSemana += bancaDia;
+    totalMes += bancaDia;
+    document.getElementById('totalSemana').innerText = totalSemana;
+    document.getElementById('totalMes').innerText = totalMes;
+    alert('Banca atualizada!');
+  }
+
+  // Live
+  function atualizarLive() {
+    const link = document.getElementById('linkLive').value;
+    document.getElementById('liveFrame').src = link;
+  }
+
+  // Admin (simulado)
+  function adminAtualizarLive() {
+    const link = document.getElementById('adminLinkLive').value;
+    document.getElementById('liveFrame').src = link;
+    alert('Live atualizada pelo admin!');
+  }
+
+  // Simulação de login admin
+  const senhaAdmin = "thurzin123"; // senha simples para teste
+  const senha = prompt("Digite a senha de admin para acessar o painel:");
+  if(senha === senhaAdmin){
+    document.getElementById('adminSection').style.display = 'block';
+  }
+</script>
 
 </body>
 </html>
