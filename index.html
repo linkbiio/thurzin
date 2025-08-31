@@ -5,63 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thurzin Trader - Landing Page</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
       background: #000;
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      padding: 40px 20px;
     }
 
     h1 {
-      margin-bottom: 30px;
+      color: #FFD700;
+      text-shadow: 1px 1px 5px #000;
       font-size: 2.5rem;
       text-align: center;
-      color: #FFD700; /* dourado */
-      text-shadow: 1px 1px 5px #000;
-    }
-
-    .image-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
       margin-bottom: 40px;
-    }
-
-    .image-box {
-      width: 300px;
-      height: 200px;
-      background: #222;
-      border: 2px dashed #FFD700;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #FFD700;
-      font-weight: bold;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .image-box:hover {
-      background: #333;
     }
 
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 20px;
       width: 100%;
       max-width: 400px;
-      margin-bottom: 50px;
     }
 
     .btn {
@@ -71,29 +39,25 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: transform 0.2s, opacity 0.2s;
       text-align: center;
       text-decoration: none;
       color: #fff;
     }
-
-    .btn-affiliate { background: #FF4500; } /* vermelho laranja */
-    .btn-whatsapp { background: #25D366; color: #fff; }
-    .btn-group { background: #1DA1F2; } /* azul */
-    .btn-instagram { background: #C13584; }
-    .btn-tiktok { background: #000; border: 2px solid #fff; }
 
     .btn:hover {
       transform: scale(1.05);
       opacity: 0.9;
     }
 
-    @media (max-width: 500px) {
-      .image-box {
-        width: 90%;
-        height: 150px;
-      }
+    /* Cores dos botões */
+    .btn-affiliate { background: #FF4500; } /* Laranja/Afiliado */
+    .btn-whatsapp { background: #25D366; } /* Verde WhatsApp */
+    .btn-group { background: #1DA1F2; } /* Azul grupo */
+    .btn-instagram { background: #C13584; } /* Rosa Instagram */
+    .btn-tiktok { background: #000; border: 2px solid #fff; } /* Preto TikTok */
 
+    @media (max-width: 500px) {
       .btn {
         font-size: 1rem;
         padding: 15px;
@@ -104,12 +68,6 @@
 <body>
 
   <h1>Thurzin Trader</h1>
-
-  <div class="image-section">
-    <div class="image-box">Clique para subir imagem 1</div>
-    <div class="image-box">Clique para subir imagem 2</div>
-    <div class="image-box">Clique para subir imagem 3</div>
-  </div>
 
   <div class="buttons">
     <a class="btn btn-affiliate" href="https://trade.astronbroker.com/register?aff=752922&aff_model=revenue&afftrack=" target="_blank">Afiliado Astron Broker</a>
