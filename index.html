@@ -4,99 +4,131 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thurzin Trader</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: #0a0a0a;
       color: #fff;
     }
+
     header {
-      background: #1a1a1a;
+      background: linear-gradient(90deg, #000, #1a1a1a);
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    header h1 {
+      color: #f1c40f;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 40px auto;
       padding: 20px;
+      background: #1a1a1a;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      color: #f1c40f;
+      margin-bottom: 20px;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      color: #f1c40f;
-    }
+
+    /* Links principais */
     .links {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 20px 0;
-      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
+
     .links a {
-      display: block;
       text-decoration: none;
-      color: #fff;
-      background: #f1c40f;
-      padding: 15px 25px;
-      border-radius: 10px;
-      width: 250px;
-      text-align: center;
+      color: #000;
+      background: linear-gradient(135deg, #f1c40f, #d4ac0d);
+      padding: 20px 35px;
+      border-radius: 12px;
       font-weight: bold;
-      transition: 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
+
     .links a:hover {
-      background: #d4ac0d;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(241,196,15,0.6);
     }
+
+    /* Dashboard */
     .dashboard {
-      background: #1a1a1a;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #111;
       padding: 20px;
-      margin: 20px;
-      border-radius: 10px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
-    .dashboard h2 {
+
+    .card h3 {
       color: #f1c40f;
+      margin-top: 0;
+      margin-bottom: 15px;
+      text-align: center;
     }
-    .section {
-      margin-bottom: 20px;
-    }
-    input, button, select {
-      padding: 8px;
-      margin: 5px 0;
-      border-radius: 5px;
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
       border: none;
+      font-size: 1rem;
     }
+
     button {
       background: #f1c40f;
       color: #000;
-      cursor: pointer;
       font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
     }
+
     button:hover {
       background: #d4ac0d;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
     }
-    table, th, td {
-      border: 1px solid #fff;
-    }
+
     th, td {
+      border: 1px solid #fff;
       padding: 8px;
       text-align: center;
     }
+
     iframe {
       width: 100%;
-      height: 360px;
-      border-radius: 10px;
+      height: 250px;
+      border-radius: 12px;
       border: none;
     }
-    .admin-section {
-      display: none;
-    }
-    @media(max-width: 600px) {
-      .links a {
-        width: 90%;
-      }
-      iframe {
-        height: 200px;
-      }
+
+    @media(max-width: 600px){
+      header h1 { font-size: 2rem; }
+      .links a { padding: 15px 20px; }
+      iframe { height: 180px; }
     }
   </style>
 </head>
@@ -106,67 +138,72 @@
   <h1>Thurzin Trader</h1>
 </header>
 
-<div class="links">
-  <a href="https://trade.astronbroker.com/register?aff=752922&aff_model=revenue&afftrack=" target="_blank">Corretora Parceira</a>
-  <a href="https://chat.whatsapp.com/BqocKGrw95I5WWdfJXrdAg" target="_blank">Grupo da Live</a>
-  <a href="https://wa.me/5522997301385" target="_blank">WhatsApp</a>
-  <a href="https://www.tiktok.com/@thurzintrader?is_from_webapp=1&sender_device=pc" target="_blank">TikTok Oficial</a>
-  <a href="https://www.tiktok.com/@thurzinshorts?_t=ZM-8zLXqZ3SNpI&_r=1" target="_blank">TikTok Clips</a>
-  <a href="https://www.instagram.com/thurzintrader?igsh=dzNhNzZ3d3djd2Q0&utm_source=qr" target="_blank">Instagram</a>
+<!-- Seção de Links Principais -->
+<div class="section">
+  <h2>Links Importantes</h2>
+  <div class="links">
+    <a href="https://trade.astronbroker.com/register?aff=752922&aff_model=revenue&afftrack=" target="_blank">Corretora</a>
+    <a href="https://chat.whatsapp.com/BqocKGrw95I5WWdfJXrdAg" target="_blank">Grupo Live</a>
+    <a href="https://wa.me/5522997301385" target="_blank">WhatsApp</a>
+    <a href="https://www.tiktok.com/@thurzintrader?is_from_webapp=1&sender_device=pc" target="_blank">TikTok Oficial</a>
+    <a href="https://www.tiktok.com/@thurzinshorts?_t=ZM-8zLXqZ3SNpI&_r=1" target="_blank">TikTok Clips</a>
+    <a href="https://www.instagram.com/thurzintrader?igsh=dzNhNzZ3d3djd2Q0&utm_source=qr" target="_blank">Instagram</a>
+  </div>
 </div>
 
-<div class="dashboard">
-  <h2>Dashboard</h2>
+<!-- Dashboard -->
+<div class="section">
+  <h2>Dashboard do Trader</h2>
+  <div class="dashboard">
+    <!-- Gerenciamento de Banca -->
+    <div class="card">
+      <h3>Gerenciamento de Banca</h3>
+      <label>Banca Inicial:</label>
+      <input type="number" id="bancaInicial" value="0"><br>
+      <label>Faturou (+) ou Perdeu (-) Hoje:</label>
+      <input type="number" id="bancaDia" value="0"><br>
+      <button onclick="atualizarBanca()">Atualizar</button>
+      <p>Total Semana: <span id="totalSemana">0</span></p>
+      <p>Total Mês: <span id="totalMes">0</span></p>
+    </div>
 
-  <!-- Sessão Gerenciamento de Banca -->
-  <div class="section">
-    <h3>Gerenciamento de Banca</h3>
-    <label>Banca Inicial:</label>
-    <input type="number" id="bancaInicial" value="0"><br>
-    <label>Faturou (+) ou Perdeu (-) Hoje:</label>
-    <input type="number" id="bancaDia" value="0"><br>
-    <button onclick="atualizarBanca()">Atualizar</button>
-    <p>Total Semana: <span id="totalSemana">0</span></p>
-    <p>Total Mês: <span id="totalMes">0</span></p>
-  </div>
+    <!-- Video Tutorial -->
+    <div class="card">
+      <h3>Video Tutorial</h3>
+      <iframe src="https://www.youtube.com/embed/LCn34PwXPpE?si=i6y_x2oc4wPIRv-O" allowfullscreen></iframe>
+    </div>
 
-  <!-- Sessão Video Tutorial -->
-  <div class="section">
-    <h3>Video Tutorial</h3>
-    <iframe src="https://www.youtube.com/embed/LCn34PwXPpE?si=i6y_x2oc4wPIRv-O" allowfullscreen></iframe>
-  </div>
+    <!-- Live Thurzin -->
+    <div class="card">
+      <h3>Live Thurzin Trader</h3>
+      <label>Link da Live:</label>
+      <input type="text" id="linkLive" placeholder="Cole o link do Google Meet">
+      <button onclick="atualizarLive()">Atualizar Live</button>
+      <iframe id="liveFrame" src=""></iframe>
+      <h4>Horários da Live</h4>
+      <table>
+        <tr><th>Dia</th><th>Horário</th></tr>
+        <tr><td>Segunda</td><td>10h / 22h</td></tr>
+        <tr><td>Terça</td><td>10h / 22h</td></tr>
+        <tr><td>Quarta</td><td>10h / 22h</td></tr>
+        <tr><td>Quinta</td><td>10h / 22h</td></tr>
+        <tr><td>Sexta</td><td>10h / 22h</td></tr>
+      </table>
+    </div>
 
-  <!-- Sessão Live -->
-  <div class="section">
-    <h3>Live Thurzin Trader</h3>
-    <label>Link da Live:</label>
-    <input type="text" id="linkLive" placeholder="Cole o link do Google Meet"><br>
-    <button onclick="atualizarLive()">Atualizar Live</button>
-    <iframe id="liveFrame" src="" allowfullscreen></iframe>
-    <h4>Horários da Live</h4>
-    <table>
-      <tr><th>Dia</th><th>Horário</th></tr>
-      <tr><td>Segunda</td><td>10h e 22h</td></tr>
-      <tr><td>Terça</td><td>10h e 22h</td></tr>
-      <tr><td>Quarta</td><td>10h e 22h</td></tr>
-      <tr><td>Quinta</td><td>10h e 22h</td></tr>
-      <tr><td>Sexta</td><td>10h e 22h</td></tr>
-    </table>
-  </div>
+    <!-- Painel Admin Simples -->
+    <div class="card">
+      <h3>Painel Admin</h3>
+      <p>Atualize o link da live diretamente:</p>
+      <input type="text" id="adminLinkLive" placeholder="Novo link da live">
+      <button onclick="adminAtualizarLive()">Atualizar Live</button>
+    </div>
 
-  <!-- Painel Admin -->
-  <div class="section admin-section" id="adminSection">
-    <h3>Painel Admin</h3>
-    <p>Aqui você pode controlar clientes e atualizar links das lives.</p>
-    <!-- Exemplo de gerenciamento de links -->
-    <label>Novo link da live:</label>
-    <input type="text" id="adminLinkLive" placeholder="Novo link"><br>
-    <button onclick="adminAtualizarLive()">Atualizar Live (Admin)</button>
   </div>
 </div>
 
 <script>
-  // Banca
+  // Gerenciamento de Banca
   let totalSemana = 0;
   let totalMes = 0;
 
@@ -185,18 +222,11 @@
     document.getElementById('liveFrame').src = link;
   }
 
-  // Admin (simulado)
+  // Admin
   function adminAtualizarLive() {
     const link = document.getElementById('adminLinkLive').value;
     document.getElementById('liveFrame').src = link;
-    alert('Live atualizada pelo admin!');
-  }
-
-  // Simulação de login admin
-  const senhaAdmin = "thurzin123"; // senha simples para teste
-  const senha = prompt("Digite a senha de admin para acessar o painel:");
-  if(senha === senhaAdmin){
-    document.getElementById('adminSection').style.display = 'block';
+    alert('Live atualizada!');
   }
 </script>
 
