@@ -1,136 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thurzin Trader</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: #0a0a0a;
-      color: #fff;
-    }
-
-    header {
-      background: linear-gradient(90deg, #000, #1a1a1a);
-      padding: 25px 20px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-
-    header h1 {
-      color: #f1c40f;
-      font-size: 3rem;
-      margin: 0;
-    }
-
-    .section {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #1a1a1a;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-
-    h2 {
-      color: #f1c40f;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    /* Links principais */
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .links a {
-      text-decoration: none;
-      color: #000;
-      background: linear-gradient(135deg, #f1c40f, #d4ac0d);
-      padding: 20px 35px;
-      border-radius: 12px;
-      font-weight: bold;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .links a:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(241,196,15,0.6);
-    }
-
-    /* Dashboard */
-    .dashboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: #111;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-
-    .card h3 {
-      color: #f1c40f;
-      margin-top: 0;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    input, button {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 8px;
-      border: none;
-      font-size: 1rem;
-    }
-
-    button {
-      background: #f1c40f;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #d4ac0d;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-
-    th, td {
-      border: 1px solid #fff;
-      padding: 8px;
-      text-align: center;
-    }
-
-    iframe {
-      width: 100%;
-      height: 250px;
-      border-radius: 12px;
-      border: none;
-    }
-
-    @media(max-width: 600px){
-      header h1 { font-size: 2rem; }
-      .links a { padding: 15px 20px; }
-      iframe { height: 180px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thurzin Trader - Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  body {margin:0;font-family:'Montserrat',sans-serif;background:#0a0a0a;color:#fff;}
+  header{background:linear-gradient(90deg,#000,#1a1a1a);padding:25px 20px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.5);}
+  header h1{color:#f1c40f;font-size:3rem;margin:0;}
+  .section{max-width:1200px;margin:40px auto;padding:20px;background:#1a1a1a;border-radius:15px;box-shadow:0 4px 20px rgba(0,0,0,0.5);}
+  h2{color:#f1c40f;margin-bottom:20px;text-align:center;}
+  .links{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;}
+  .links a{text-decoration:none;color:#000;background:linear-gradient(135deg,#f1c40f,#d4ac0d);padding:20px 35px;border-radius:12px;font-weight:bold;transition:transform 0.3s,box-shadow 0.3s;}
+  .links a:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(241,196,15,0.6);}
+  .dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;}
+  .card{background:#111;padding:20px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.5);}
+  .card h3{color:#f1c40f;margin-top:0;margin-bottom:15px;text-align:center;}
+  input,button{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:none;font-size:1rem;}
+  button{background:#f1c40f;color:#000;font-weight:bold;cursor:pointer;transition:0.3s;}
+  button:hover{background:#d4ac0d;}
+  table{width:100%;border-collapse:collapse;margin-top:10px;}
+  th,td{border:1px solid #fff;padding:8px;text-align:center;}
+  iframe{width:100%;height:250px;border-radius:12px;border:none;}
+  canvas{background:#1a1a1a;border-radius:12px;}
+  @media(max-width:600px){header h1{font-size:2rem}.links a{padding:15px 20px}iframe{height:180px}}
+</style>
 </head>
 <body>
 
@@ -138,7 +34,6 @@
   <h1>Thurzin Trader</h1>
 </header>
 
-<!-- Seção de Links Principais -->
 <div class="section">
   <h2>Links Importantes</h2>
   <div class="links">
@@ -151,20 +46,21 @@
   </div>
 </div>
 
-<!-- Dashboard -->
 <div class="section">
   <h2>Dashboard do Trader</h2>
   <div class="dashboard">
+
     <!-- Gerenciamento de Banca -->
     <div class="card">
       <h3>Gerenciamento de Banca</h3>
       <label>Banca Inicial:</label>
-      <input type="number" id="bancaInicial" value="0"><br>
+      <input type="number" id="bancaInicial"><br>
       <label>Faturou (+) ou Perdeu (-) Hoje:</label>
-      <input type="number" id="bancaDia" value="0"><br>
+      <input type="number" id="bancaDia"><br>
       <button onclick="atualizarBanca()">Atualizar</button>
       <p>Total Semana: <span id="totalSemana">0</span></p>
       <p>Total Mês: <span id="totalMes">0</span></p>
+      <canvas id="graficoBanca" height="200"></canvas>
     </div>
 
     <!-- Video Tutorial -->
@@ -176,9 +72,6 @@
     <!-- Live Thurzin -->
     <div class="card">
       <h3>Live Thurzin Trader</h3>
-      <label>Link da Live:</label>
-      <input type="text" id="linkLive" placeholder="Cole o link do Google Meet">
-      <button onclick="atualizarLive()">Atualizar Live</button>
       <iframe id="liveFrame" src=""></iframe>
       <h4>Horários da Live</h4>
       <table>
@@ -191,41 +84,100 @@
       </table>
     </div>
 
-    <!-- Painel Admin Simples -->
+    <!-- Painel Admin -->
     <div class="card">
       <h3>Painel Admin</h3>
-      <p>Atualize o link da live diretamente:</p>
-      <input type="text" id="adminLinkLive" placeholder="Novo link da live">
-      <button onclick="adminAtualizarLive()">Atualizar Live</button>
+      <label>Atualizar Link da Live:</label>
+      <input type="text" id="adminLinkLive" placeholder="Cole o link da live">
+      <button onclick="atualizarLiveAdmin()">Atualizar Live</button>
+      <h4>Clientes Registrados</h4>
+      <table id="clientesTable">
+        <tr><th>Cliente</th><th>Saldo Semana</th><th>Saldo Mês</th></tr>
+      </table>
     </div>
 
   </div>
 </div>
 
 <script>
-  // Gerenciamento de Banca
-  let totalSemana = 0;
-  let totalMes = 0;
+  // Clientes simulados
+  let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+
+  // Inicializar LocalStorage de banca
+  let totalSemana = parseFloat(localStorage.getItem('totalSemana')) || 0;
+  let totalMes = parseFloat(localStorage.getItem('totalMes')) || 0;
+  let labelsBanca = JSON.parse(localStorage.getItem('labelsBanca')) || [];
+  let dataBanca = JSON.parse(localStorage.getItem('dataBanca')) || [];
+
+  document.getElementById('totalSemana').innerText = totalSemana;
+  document.getElementById('totalMes').innerText = totalMes;
+
+  const ctx = document.getElementById('graficoBanca').getContext('2d');
+  const grafico = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labelsBanca,
+      datasets: [{
+        label: 'Saldo Diário',
+        data: dataBanca,
+        borderColor: '#f1c40f',
+        backgroundColor: 'rgba(241,196,15,0.2)',
+        tension: 0.3,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { x: { ticks: { color:'#fff' } }, y: { ticks: { color:'#fff' } } }
+    }
+  });
 
   function atualizarBanca() {
     const bancaDia = parseFloat(document.getElementById('bancaDia').value) || 0;
+    const hoje = new Date().toLocaleDateString();
     totalSemana += bancaDia;
     totalMes += bancaDia;
+    labelsBanca.push(hoje);
+    dataBanca.push(bancaDia);
+    localStorage.setItem('totalSemana', totalSemana);
+    localStorage.setItem('totalMes', totalMes);
+    localStorage.setItem('labelsBanca', JSON.stringify(labelsBanca));
+    localStorage.setItem('dataBanca', JSON.stringify(dataBanca));
+
+    // Salvar cliente atual
+    const clienteNome = 'Cliente ' + (clientes.length + 1);
+    clientes.push({ nome: clienteNome, semana: totalSemana, mes: totalMes });
+    localStorage.setItem('clientes', JSON.stringify(clientes));
+    atualizarTabelaClientes();
+
     document.getElementById('totalSemana').innerText = totalSemana;
     document.getElementById('totalMes').innerText = totalMes;
-    alert('Banca atualizada!');
+    grafico.update();
   }
+
+  function atualizarTabelaClientes() {
+    const table = document.getElementById('clientesTable');
+    table.innerHTML = '<tr><th>Cliente</th><th>Saldo Semana</th><th>Saldo Mês</th></tr>';
+    clientes.forEach(c => {
+      const row = table.insertRow();
+      row.insertCell(0).innerText = c.nome;
+      row.insertCell(1).innerText = c.semana;
+      row.insertCell(2).innerText = c.mes;
+    });
+  }
+
+  // Inicializar tabela de clientes
+  atualizarTabelaClientes();
 
   // Live
-  function atualizarLive() {
-    const link = document.getElementById('linkLive').value;
-    document.getElementById('liveFrame').src = link;
-  }
+  const liveLinkSalvo = localStorage.getItem('liveLink');
+  if(liveLinkSalvo) document.getElementById('liveFrame').src = liveLinkSalvo;
 
-  // Admin
-  function adminAtualizarLive() {
+  function atualizarLiveAdmin() {
     const link = document.getElementById('adminLinkLive').value;
     document.getElementById('liveFrame').src = link;
+    localStorage.setItem('liveLink', link);
     alert('Live atualizada!');
   }
 </script>
